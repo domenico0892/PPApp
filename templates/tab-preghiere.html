@@ -1,0 +1,13 @@
+<ion-view view-title="Preghiere">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" 
+                ng-repeat="currPreg in preghiere" type="item-text-wrap" href="#/tab/chats/{{currPreg._id}}">
+        <img ng-src="{{currPreg.img}}">
+        <h2>{{currPreg.titolo}}</h2>
+        <p>{{currPreg.ripetere}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
