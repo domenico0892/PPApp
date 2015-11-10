@@ -5,9 +5,18 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var db = null;
 
-.run(function ($ionicPlatform) {
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+
+
+.run(function ($ionicPlatform, $cordovaSQLite) {
+    console.log("fanculo")
+    if (window.cordova) {
+      db = $cordovaSQLite.openDB({ name: "my.db" }); //device
+    }else{
+      db = window.openDatabase("my.db", '1', 'my', 1024 * 1024 * 100); // browser
+    }
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -20,6 +29,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             // org.apache.cordova.statusbar required
             StatusBar.styleLightContent();
         }
+            if (window.cordova) {
+      db = $cordovaSQLite.openDB({ name: "my.db" }); //device
+    }else{
+      db = window.openDatabase("my.db", '1', 'my', 1024 * 1024 * 100); // browser
+    }
     });
 })
 
@@ -102,3 +116,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $urlRouterProvider.otherwise('/tab/home');
 
 });
+
+// var db = null;
+ 
+// var example = angular.module('starter', ['ionic', 'ngCordova'])
+//     .run(function($ionicPlatform, $cordovaSQLite) {
+//         $ionicPlatform.ready(function() {
+//             if(window.cordova && window.cordova.plugins.Keyboard) {
+//                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+//             }
+//             if(window.StatusBar) {
+//                 StatusBar.styleDefault();
+//             }
+//             db = $cordovaSQLite.openDB("my.db");
+//             $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
+//         });
+//     });
