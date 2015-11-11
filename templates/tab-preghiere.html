@@ -1,6 +1,6 @@
 <ion-view view-title="Preghiere">
   <ion-content>
-    <ion-list>
+    <!-- <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" 
                 ng-repeat="currPreg in preghiere" type="item-text-wrap" href="#/tab/chats/{{currPreg._id}}">
         <img ng-src="{{currPreg.img}}">
@@ -9,6 +9,14 @@
         <p>{{currPreg.repeat}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+    <div id="preghiera" align="center">
+      <h4>{{preghiera._id}}</h4>
+      <h2>{{preghiera.titolo}}</h2>
+      <h4>{{preghiera.preghiera}}</h4>
+      <h3>Ripeti per {{preghiera.repeat}} volte</h3>
+    </ion-nav-buttons>
+    </div>
+
   </ion-content>
 </ion-view>
