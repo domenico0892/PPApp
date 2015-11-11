@@ -1,5 +1,5 @@
 <ion-view view-title="Preghiere">
-  <ion-content>
+   <ion-content>
     <!-- <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" 
                 ng-repeat="currPreg in preghiere" type="item-text-wrap" href="#/tab/chats/{{currPreg._id}}">
@@ -10,13 +10,11 @@
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list> -->
-    <div id="preghiera" align="center">
+    <div id="preghiera" align="center" ng-controller="PreghiereCtrl">
       <h4>{{preghiera._id}}</h4>
       <h2>{{preghiera.titolo}}</h2>
       <h4>{{preghiera.preghiera}}</h4>
       <h3>Ripeti per {{preghiera.repeat}} volte</h3>
-    </ion-nav-buttons>
-    </div>
-    <button class="button button-block button-balanced" ng-click="doRefresh()">Refresh button</button>
-  </ion-content>
-</ion-view>
+      <button class="button button-block button-balanced" ng-click="doRefresh()">Prega ancora!</button>
+      </div></ion-content></ion-view>
+

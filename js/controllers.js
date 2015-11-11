@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
 //  };
 //})
 
-.controller('PreghiereCtrl', function ($scope, $rootScope, Chats, $http) {
+.controller('PreghiereCtrl', function ($window, $scope, $rootScope, Chats, $http) {
     $http.get('js/data.json')
     .success(function (response){
         //$scope.preghiere=response;
@@ -26,6 +26,16 @@ angular.module('starter.controllers', [])
     //         "img": "http://www.bridgebuilding.com/images/nmpapx.jpg"
     //     }];
     //$rootScope.preghiere = $scope.preghiere;
+    $scope.doRefresh=function(){
+        // $window.location.reload(true);
+        $http.get('js/data.json')
+    .success(function (response){
+        //$scope.preghiere=response;
+        var l = response.length;
+        var r = Math.ceil(Math.random() * l) - 1;
+        $scope.preghiera = response[r];
+    });
+    }
 })
 
 .controller('StoriaCntrl', function ($scope, $stateParams, Chats) {})
