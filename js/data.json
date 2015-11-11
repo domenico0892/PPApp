@@ -1,0 +1,14 @@
+[
+    {
+        "_id": 1,
+        "titolo": "bla bla",
+        "preghiera": "bla bla bla bla bla bla",
+        "repeat": 3
+    },
+    {
+         "_id": 2,
+        "titolo": "di di",
+        "preghiera": "di didi didi didi didi didi di",
+        "repeat": 1
+    }
+]

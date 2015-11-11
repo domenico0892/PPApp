@@ -9,15 +9,19 @@ angular.module('starter.controllers', [])
 //  };
 //})
 
-.controller('PreghiereCtrl', function ($scope, $rootScope, Chats) {
-    $scope.preghiere = [
-        {
-            "_id": "01",
-            "titolo": "INVOCAZIONE A SAN PIO",
-            "ripetere": "Ripetere per 3",
-            "testo": "O Padre Pio, luce di Dio, prega Gesù e la Vergine Maria per me e per tutta l'umanità sofferente. Amen.",
-            "img": "http://www.bridgebuilding.com/images/nmpapx.jpg"
-        }];
+.controller('PreghiereCtrl', function ($scope, $rootScope, Chats, $http) {
+    $http.get('js/data.json')
+    .success(function (response){
+        $scope.preghiere=response;
+    });
+    // $scope.preghiere = [
+    //     {
+    //         "_id": "01",
+    //         "titolo": "INVOCAZIONE A SAN PIO",
+    //         "ripetere": "Ripetere per 3",
+    //         "testo": "O Padre Pio, luce di Dio, prega Gesù e la Vergine Maria per me e per tutta l'umanità sofferente. Amen.",
+    //         "img": "http://www.bridgebuilding.com/images/nmpapx.jpg"
+    //     }];
     $rootScope.preghiere = $scope.preghiere;
 })
 
