@@ -10,32 +10,33 @@ angular.module('starter.controllers', [])
 //})
 
 .controller('PreghiereCtrl', function ($window, $scope, $rootScope, Chats, $http) {
-    $http.get('js/data.json')
-    .success(function (response){
-        //$scope.preghiere=response;
-        var l = response.length;
-        var r = Math.ceil(Math.random() * l) - 1;
-        $scope.preghiera = response[r];
-    });
-    // $scope.preghiere = [
-    //     {
-    //         "_id": "01",
-    //         "titolo": "INVOCAZIONE A SAN PIO",
-    //         "ripetere": "Ripetere per 3",
-    //         "testo": "O Padre Pio, luce di Dio, prega Gesù e la Vergine Maria per me e per tutta l'umanità sofferente. Amen.",
-    //         "img": "http://www.bridgebuilding.com/images/nmpapx.jpg"
-    //     }];
-    //$rootScope.preghiere = $scope.preghiere;
-    $scope.doRefresh=function(){
-        // $window.location.reload(true);
+    
+    $scope.preghiere = [];
+
+    var callJsonFile = function () {
         $http.get('js/data.json')
-    .success(function (response){
-        //$scope.preghiere=response;
-        var l = response.length;
+            .success(function (response) {
+                var l = response.length;
+                var r = Math.ceil(Math.random() * l) - 1;
+                $scope.preghiera = response[r];
+                $scope.preghiere = response;
+            });
+    };
+    callJsonFile();
+
+    //In questo modo non serve fare una chiamata ad ogni click, l'array di preghere c'é già ;)
+    $scope.doRefresh = function () {
+        var l = $scope.preghiere.length;
         var r = Math.ceil(Math.random() * l) - 1;
-        $scope.preghiera = response[r];
-    });
-    }
+        //In questo modo non verrà mai pescata la stessa preghiera: capitava che cl click rimaneva sulla stessa
+        // e si doveva cliccare un'altra volta
+        if ($scope.preghiera._id != $scope.preghiere[r]._id) {
+            $scope.preghiera = $scope.preghiere[r];
+        } else {
+            $scope.doRefresh();
+        }
+    };
+
 })
 
 .controller('StoriaCntrl', function ($scope, $stateParams, Chats) {})
