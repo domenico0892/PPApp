@@ -37,6 +37,7 @@ angular.module('starter.controllers', [])
             $scope.currPreghiera = $scope.preghiere[i];
         }
     }
+
 })
 
 .controller('ContattiCtrl', function ($scope) {})
@@ -47,3 +48,28 @@ angular.module('starter.controllers', [])
         enableFriends: true
     };
 });
+/*
+.controller('MyCtrl', function($scope, $timeout) {
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+  $scope.refreshing = false;
+  
+  $scope.doRefresh = function(outsideAngularContext) {
+    $scope.refreshing = true;
+    if( outsideAngularContext ) {
+      $scope.$apply();
+    }
+    
+    console.log('Refreshing!');
+    $timeout( function() {
+      //simulate async response
+      $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
+
+      //Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+      $scope.refreshing = false;
+    
+    }, 1000);
+      
+  };
+  
+});*/
