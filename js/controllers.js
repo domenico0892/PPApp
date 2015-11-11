@@ -12,7 +12,10 @@ angular.module('starter.controllers', [])
 .controller('PreghiereCtrl', function ($scope, $rootScope, Chats, $http) {
     $http.get('js/data.json')
     .success(function (response){
-        $scope.preghiere=response;
+        //$scope.preghiere=response;
+        var l = response.length;
+        var r = Math.ceil(Math.random() * l) - 1;
+        $scope.preghiera = response[r];
     });
     // $scope.preghiere = [
     //     {
@@ -22,7 +25,7 @@ angular.module('starter.controllers', [])
     //         "testo": "O Padre Pio, luce di Dio, prega Gesù e la Vergine Maria per me e per tutta l'umanità sofferente. Amen.",
     //         "img": "http://www.bridgebuilding.com/images/nmpapx.jpg"
     //     }];
-    $rootScope.preghiere = $scope.preghiere;
+    //$rootScope.preghiere = $scope.preghiere;
 })
 
 .controller('StoriaCntrl', function ($scope, $stateParams, Chats) {})
