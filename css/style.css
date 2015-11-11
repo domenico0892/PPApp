@@ -1,1 +1,30 @@
-/* Empty. Add your own CSS if you like */
+.login {
+    background: url(../img/pergamena.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    height: 246px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}
+.scroll-content{
+ background: url(https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/2fb669a25c08c88a42c8fef6567b6748.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.item.item-trns {
+	border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white; 
+}
+
+.my-content{
+min-height:100% !important;
+top:0 !important;
+bottom:0 !important;
+}
