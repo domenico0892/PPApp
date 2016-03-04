@@ -1,5 +1,5 @@
 .login {
-    background: url(../img/pergamena.jpg);
+    background: url(img/pergamena.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -10,7 +10,7 @@
     position: relative;
 }
 .scroll-content{
- background: url(https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/2fb669a25c08c88a42c8fef6567b6748.jpeg) no-repeat center center fixed; 
+ background: url(../img/pergamena2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
